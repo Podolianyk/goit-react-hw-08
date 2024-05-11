@@ -1,0 +1,35 @@
+.form {
+  max-width: 400px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.formInput{
+  width: 100%;
+  padding: 10px 10px ;
+  margin-bottom: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.formInput:focus{
+  border: 2px solid #862bf5;
+}
+
+.btn{
+  border-radius: 5px;
+  padding: 10px 20px 10px 20px;
+  border: none;
+  background-color: rgb(125, 126, 126);
+  color: white;
+  transition: 0.3s;
+}
+
+.btn:focus,
+.btn:hover{
+background-color: #862bf5;
+}

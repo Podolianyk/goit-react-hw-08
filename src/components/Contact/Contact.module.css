@@ -1,0 +1,37 @@
+.container {
+    border: 1px solid black;;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px;
+    padding: 10px;
+    /* max-width: 400px; */
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+.userContainer{
+    display: flex;
+    flex-direction: column;
+    gap:10px
+}
+
+.userPhone, .userName{
+    display: flex;
+    gap: 5px;
+}
+
+.btn {
+    border-radius: 5px;
+    padding: 10px 20px 10px 20px;
+    border: none;
+    background-color: rgb(125, 126, 126);
+    color: white;
+    transition: 0.3s;
+}
+
+.btn:focus,
+.btn:hover {
+    background-color: #862bf5;
+}
+
