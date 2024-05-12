@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import initialUsers from "../../users.json";
 
 import ContactForm from "../ContactForm/ContactForm";
@@ -8,8 +8,21 @@ import ContactList from "../ContactList/ContactList";
 import css from "./App.module.css";
 
 export default function App() {
-  const [contacts, setContacts] = useState(initialUsers); //оголошення стану з початковим значенням даних з файлу users.json
-  const [filter, setFilter] = useState(""); //оголошення стану для пошукового поля
+  const [contacts, setContacts] = useState(() => {
+    const savedContacts = localStorage.getItem("my-contacts");
+    if (savedContacts !== null) {
+      return JSON.parse(savedContacts);
+    }
+    return initialUsers;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("my-contacts", JSON.stringify(contacts));
+  }, [contacts]);
+
+  // const [contacts, setContacts] = useState(initialUsers);
+
+  const [filter, setFilter] = useState("");
 
   const addContact = (newContact) => {
     setContacts((prevContacts) => {

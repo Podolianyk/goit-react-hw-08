@@ -4,9 +4,9 @@ import Contact from "../Contact/Contact";
 
 export default function ContactList({ contacts, onDelete }) {
   return (
-    <ul className={css.container}>
+    <ul className={css.list}>
       {contacts.map((contact) => (
-        <li key={contact.id}>
+        <li className={css.listItem} key={contact.id}>
           <Contact data={contact} onDelete={onDelete} />
         </li>
       ))}
