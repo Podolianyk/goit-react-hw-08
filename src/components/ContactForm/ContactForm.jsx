@@ -2,6 +2,9 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useId } from "react";
 import * as Yup from "yup";
 import css from "./ContactForm.module.css";
+// import { nanoid } from "@reduxjs/toolkit";
+import { addContact } from "../../redux/contactsSlice";
+import { useDispatch } from "react-redux";
 
 const UserSchema = Yup.object().shape({
   userName: Yup.string()
@@ -11,16 +14,19 @@ const UserSchema = Yup.object().shape({
   userNumber: Yup.string().min(3, "Too Short!").required("Required!"),
 });
 
-export default function ContactForm({ onAdd }) {
+export default function ContactForm() {
   const fieldId = useId();
+  const dispatch = useDispatch(); // для того, щоб отримати посилання на dispatch (диспетчер, який відправляє екшн) використовується хук useDispatch() - він повертає посилання на функцію dispatch, яка є всередині store, який ми створили раніше.
 
   const handleSubmit = (values, actions) => {
-    onAdd({
+    const contactDetails = {
       name: values.userName,
       number: values.userNumber,
-      id: Date.now(),
-    });
+      // id: nanoid(), // вмонтована в Redux функція, яка повертає id
+    };
+    console.log(contactDetails);
     actions.resetForm();
+    dispatch(addContact(contactDetails)); //відправляємо в стор наш екшн з отриманими з інпутів полів
   };
 
   return (
