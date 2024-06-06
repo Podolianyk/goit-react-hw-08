@@ -5,33 +5,37 @@
   border-radius: 5px;
   margin-bottom: 15px;
   margin-top: 15px;
+  margin: auto;
+  background-color: white;
+  box-shadow: var(--shadow-regular);
 }
 
-.formGroup{
-display: flex;
+.formGroup {
+  display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-.formInput{
+.formInput {
   width: 100%;
-  padding: 10px 10px ;
+  padding: 10px 10px;
   border: 1px solid black;
   border-radius: 5px;
   outline: none;
   transition: 0.3s;
 }
 
-.formInput:focus{
-  border: 2px solid #7788f9;
+.formInput:hover,
+.formInput:focus {
+  border-color: #7277e3;
+  box-shadow: 0 5px 5px #888;
 }
 
-.btnContainer{
+.btnContainer {
   text-align: center;
 }
 
-.btn{
-  
+.btn {
   margin-top: 30px;
   border-radius: 5px;
   padding: 10px 20px 10px 20px;
@@ -42,11 +46,12 @@ display: flex;
 }
 
 .btn:focus,
-.btn:hover{
-background-color:#7788f9;
+.btn:hover {
+  background-color: #7277e3;
+  box-shadow: 0 5px 5px #888;
 }
 
-.error{
+.error {
   color: red;
   padding: 0;
   font-size: 10px;

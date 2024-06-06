@@ -7,17 +7,16 @@ export default function SearchBox() {
 
   const handleChange = (e) => {
     const value = e.target.value;
-    // actions.resetForm();
-    dispatch(changeFilter(value)); //відправляємо в стор наш екшн з отриманими з інпутів полів
+    dispatch(changeFilter(value));
   };
 
   return (
-    <div>
+    <div className={css.container}>
       <p>Find contact by name</p>
       <input
         className={css.field}
         type="text"
-        // value={value}
+        name="filter"
         onChange={handleChange}
       />
     </div>

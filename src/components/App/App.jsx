@@ -7,15 +7,17 @@ import css from "./App.module.css";
 
 export default function App() {
   const contacts = useSelector(selectContacts);
-  console.log(contacts);
 
   return (
     <div className={css.container}>
       <h1>Phonebook</h1>
       <ContactForm />
       <SearchBox />
-      <ContactList />
-      {/* {contacts.length > 0 ? <ContactList /> : `Create your first contact`} */}
+      {contacts.length > 0 ? (
+        <ContactList />
+      ) : (
+        <p>Create your first contact!</p>
+      )}
     </div>
   );
 }

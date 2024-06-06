@@ -1,13 +1,22 @@
-.field{
+.container {
   width: 400px;
-    padding: 10px;
-    border: 1px solid black;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    outline: none;
-    transition: 0.3s;
+  margin: 0 auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
-.field:focus{
-  border: 2px solid #7788f9;
+.field {
+  width: 400px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.field:hover,
+.field:focus {
+  border-color: #7277e3;
+  box-shadow: 0 5px 5px #888;
 }

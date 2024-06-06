@@ -1,15 +1,16 @@
-
-.list{
+.list {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
 }
 
-.listItem{
+.listItem {
   width: 360px;
   border: 1px solid black;
   border-radius: 5px;
   padding: 8px;
   display: flex;
-  
+  background-color: white;
+  box-shadow: 0 4px 4px rgba(220, 209, 242, 0.3),
+    0 10px 10px rgba(47, 15, 96, 0.1);
 }
