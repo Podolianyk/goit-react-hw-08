@@ -1,11 +1,12 @@
 import { ImUser } from "react-icons/im";
 import { ImPhone } from "react-icons/im";
 import css from "./Contact.module.css";
-import { deleteContact } from "../../redux/contactsSlice";
+import { deleteContact } from "../../redux/contactsOps";
 import { useDispatch } from "react-redux";
 
 export default function Contact({ name, number, id }) {
   const dispatch = useDispatch();
+
   const handleDelete = () => {
     dispatch(deleteContact(id));
   };

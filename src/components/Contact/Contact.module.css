@@ -24,8 +24,9 @@
   padding: 10px 20px 10px 20px;
   border: none;
   background-color: rgb(125, 126, 126);
+  box-shadow: 0 5px 5px #bababb;
   color: white;
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
 
 .btn:focus,

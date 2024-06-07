@@ -11,6 +11,11 @@
   padding: 8px;
   display: flex;
   background-color: white;
-  box-shadow: 0 4px 4px rgba(220, 209, 242, 0.3),
-    0 10px 10px rgba(47, 15, 96, 0.1);
+  box-shadow: 0 5px 5px #888;
+}
+
+.listItem:hover,
+.listItem:focus {
+  border-color: #7277e3;
+  box-shadow: 0 5px 5px #7277e3;
 }
