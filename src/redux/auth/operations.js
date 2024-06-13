@@ -17,6 +17,8 @@ export const register = createAsyncThunk(
     try {
       const response = await axios.post("/users/signup", newUser);
       setAuthHeader(response.data.token);
+      console.log(response.data);
+      return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -29,6 +31,7 @@ export const login = createAsyncThunk(
     try {
       const response = await axios.post("/users/login", userData);
       setAuthHeader(response.data.token);
+      return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -44,16 +47,16 @@ export const logout = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
   }
 }); // logout - для виходу з додатка. Базовий тип екшену "auth/logout". Використовується у компоненті UserMenu у шапці додатку.
 
-export const refreshUser = createAsyncThunk(
-  "auth/refresh",
-  async (_, thunkAPI) => {
-    try {
-      const response = await axios.get("/users/current");
-      return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-); // refreshUser - оновлення користувача за токеном. Базовий тип екшену "auth/refresh". Використовується у компоненті App під час його монтування.
+// export const refreshUser = createAsyncThunk(
+//   "auth/refresh",
+//   async (_, thunkAPI) => {
+//     try {
+//       const response = await axios.get("/users/current");
+//       return response.data;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// ); // refreshUser - оновлення користувача за токеном. Базовий тип екшену "auth/refresh". Використовується у компоненті App під час його монтування.
 
 // Токен авторизованого користувача потрібно зберігати в локальному сховищі за допомогою бібліотеки persist.
