@@ -10,3 +10,8 @@ p {
   text-align: center;
   font-weight: 700;
 }
+
+.loader {
+  display: flex;
+  justify-content: center;
+}

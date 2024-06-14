@@ -3,7 +3,9 @@ import {
   fetchContacts,
   addContact,
   deleteContact,
+  updateContact,
 } from "./../contacts/operations";
+import { logout } from "../auth/operations";
 
 const contactsSlice = createSlice({
   name: "contacts",
@@ -23,9 +25,9 @@ const contactsSlice = createSlice({
         state.error = null;
         state.loading = false;
       })
-      .addCase(fetchContacts.rejected, (state) => {
+      .addCase(fetchContacts.rejected, (state, action) => {
         state.loading = false;
-        state.error = true;
+        state.error = action.payload;
       })
       .addCase(addContact.pending, (state) => {
         state.error = null;
@@ -36,9 +38,9 @@ const contactsSlice = createSlice({
         state.error = null;
         state.loading = false;
       })
-      .addCase(addContact.rejected, (state) => {
+      .addCase(addContact.rejected, (state, action) => {
         state.loading = false;
-        state.error = true;
+        state.error = action.payload;
       })
       .addCase(deleteContact.pending, (state) => {
         state.error = null;
@@ -55,9 +57,24 @@ const contactsSlice = createSlice({
         state.error = null;
         state.loading = false;
       })
-      .addCase(deleteContact.rejected, (state) => {
+      .addCase(deleteContact.rejected, (state, action) => {
         state.loading = false;
-        state.error = true;
+        state.error = action.payload;
+      })
+      .addCase(logout.fulfilled, (state) => {
+        state.items = [];
+        state.loading = false;
+        state.error = null;
+      })
+      .addCase(updateContact.pending, (state) => {
+        state.error = null;
+        state.loading = true;
+      })
+      .addCase(updateContact.fulfilled, (state, action) => {
+        const indexOfContact = state.items.findIndex(
+          (contact) => contact.id === action.payload.id
+        );
+        state.items[indexOfContact] = action.payload;
       });
   },
 });

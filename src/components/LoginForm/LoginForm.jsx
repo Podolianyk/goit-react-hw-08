@@ -3,7 +3,7 @@ import { Field, Formik, Form } from "formik";
 import css from "./LoginForm.module.css";
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/auth/operations";
-// import toast from "react-hot-toast";
+import toast from "react-hot-toast";
 
 // const UserSchema = Yup.object().shape({
 //   userName: Yup.string()
@@ -17,10 +17,10 @@ export default function LoginForm() {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    dispatch(login(values));
-    // .unwrap()
-    // .then((data) => toast.success(`Successful Log In!`))
-    // .catch((error) => toast.error(`${error}`));
+    dispatch(login(values))
+      .unwrap()
+      .then(() => toast.success(`Successful Log In!`))
+      .catch((error) => toast.error(`${error}`));
 
     actions.resetForm();
   };

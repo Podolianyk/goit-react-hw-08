@@ -10,27 +10,57 @@
 .userContainer {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 30px;
 }
 
 .userPhone,
 .userName {
   display: flex;
   gap: 5px;
+  align-items: center;
 }
 
 .btn {
-  border-radius: 5px;
-  padding: 10px 20px 10px 20px;
+  /* border-radius: 5px; */
+  /* padding: 10px 20px 10px 20px; */
   border: none;
-  background-color: rgb(125, 126, 126);
-  box-shadow: 0 5px 5px #bababb;
-  color: white;
-  transition: all 0.3s ease;
+  background: none;
+  padding: 10px;
+  /* background-color: rgb(125, 126, 126); */
+  /* box-shadow: 0 5px 5px #bababb; */
+  /* color: white; */
+  /* transition: all 0.3s ease; */
 }
 
-.btn:focus,
+/* .btn:focus,
 .btn:hover {
   background-color: #7277e3;
   box-shadow: 0 5px 5px #888;
+} */
+
+.iconContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn:hover .icon,
+.btn:focus .icon {
+  color: #7277e3;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 10px;
+  border: none;
+  border-bottom: 1px solid #2a363b;
+  outline: none;
+  transition: 0.3s;
+  box-shadow: 0 5px 5px -5px #888;
+}
+
+.input:hover,
+.input:focus {
+  border-color: #7277e3;
+  box-shadow: 0 5px 5px -5px #7277e3;
 }

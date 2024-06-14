@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import css from "./ContactForm.module.css";
 import { addContact } from "../../redux/contacts/operations.js";
 import { useDispatch } from "react-redux";
+import toast from "react-hot-toast";
 
 const UserSchema = Yup.object().shape({
   userName: Yup.string()
@@ -22,7 +23,14 @@ export default function ContactForm() {
       name: values.userName,
       number: values.userNumber,
     };
-    dispatch(addContact(contactDetails));
+    dispatch(addContact(contactDetails))
+      .unwrap()
+      .then(() => toast.success(`Contact added successfully!`))
+      .catch(() =>
+        toast.error(`Oops, something went wrong. 
+        Try again later!`)
+      );
+
     actions.resetForm();
   };
 
