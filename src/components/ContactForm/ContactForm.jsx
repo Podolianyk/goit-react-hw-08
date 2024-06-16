@@ -11,7 +11,10 @@ const UserSchema = Yup.object().shape({
     .min(3, "Too Short!")
     .max(50, "Maximum 30 characters!")
     .required("Required!"),
-  userNumber: Yup.string().min(3, "Too Short!").required("Required!"),
+  userNumber: Yup.string()
+    .matches(/^[0-9]*$/, "Need to enter numbers")
+    .min(5, "Too Short!")
+    .required("Required!"),
 });
 
 export default function ContactForm() {

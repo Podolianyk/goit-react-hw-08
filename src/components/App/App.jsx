@@ -17,9 +17,6 @@ const LoginPage = lazy(() => import("./../../pages/LoginPage/LoginPage.jsx"));
 const ContactsPage = lazy(() =>
   import("./../../pages/ContactsPage/ContactsPage.jsx")
 );
-const NotFoundPage = lazy(() =>
-  import("./../../pages/NotFoundPage/NotFoundPage.jsx")
-);
 
 export default function App() {
   const dispatch = useDispatch();
@@ -34,7 +31,7 @@ export default function App() {
       <Bars
         height="80"
         width="80"
-        color="rgb(82, 82, 189)"
+        color="#7277e3"
         ariaLabel="bars-loading"
         wrapperStyle={{}}
         wrapperClass=""
@@ -70,7 +67,6 @@ export default function App() {
               <PrivateRoute component={<ContactsPage />} redirectTo="/login" />
             }
           />
-          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
     </Loyaut>

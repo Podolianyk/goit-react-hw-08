@@ -75,6 +75,7 @@ const contactsSlice = createSlice({
           (contact) => contact.id === action.payload.id
         );
         state.items[indexOfContact] = action.payload;
+        // state.loading = false;
       });
   },
 });
