@@ -45,13 +45,14 @@ export default function Contact({ name, number, id }) {
 
   const handleCorrection = (values, actions) => {
     const { userName, userNumber } = values;
+    console.log("handleCorrection");
 
     dispatch(updateContact({ id, name: userName, number: userNumber }))
       .unwrap()
       .then(() => {
         setIsUpdating(false);
+        toast.success(`Contact updated successfully!`);
         actions.resetForm();
-        // toast.success(`Contact updated successfully!`);
       })
       .catch(() =>
         toast.error(`Oops, something went wrong. 
@@ -117,6 +118,7 @@ export default function Contact({ name, number, id }) {
             </div>
             <div className={css.iconContainer}>
               <button
+                type="button"
                 className={css.btn}
                 onClick={() => {
                   setShowModal(true);
@@ -125,7 +127,14 @@ export default function Contact({ name, number, id }) {
                 <FaTrashAlt className={css.icon} />
               </button>
               {!isUpdating ? (
-                <button className={css.btn} onClick={() => setIsUpdating(true)}>
+                <button
+                  type="button"
+                  className={css.btn}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsUpdating(true);
+                  }}
+                >
                   <FaPen className={css.icon} />
                 </button>
               ) : (

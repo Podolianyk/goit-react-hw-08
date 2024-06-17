@@ -40,7 +40,21 @@ export default function App() {
     </div>
   ) : (
     <Loyaut>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense
+        fallback={
+          <div className={css.loader}>
+            <Bars
+              height="80"
+              width="80"
+              color="#7277e3"
+              ariaLabel="bars-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={true}
+            />
+          </div>
+        }
+      >
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route
